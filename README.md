@@ -99,10 +99,17 @@ Xử lý chạm từ STMPE811 và nhấn PA0, sau đó gọi hàm gửi HID.
 #### TouchGFX:
 Vòng lặp GUI chạy song song, vẽ vòng tròn dựa trên tọa độ chạm.
 
-# Tài liệu tham khảo
-STM32CubeIDE User Manual: STM32CubeIDE.
+# Nhóm sinh viên thực hiện
+- Nguyễn Trung Hiếu - MSSV: 20215578
+  
+- Trần Đức Lương - MSSV: 20215612
+  
+- Vũ Văn Thăng - MSSV: 20215643
 
-STM32CubeF4: STM32CubeF4.
+# Tài liệu tham khảo
+- STM32CubeIDE User Manual: STM32CubeIDE.
+
+- STM32CubeF4: STM32CubeF4.
 
 
 
