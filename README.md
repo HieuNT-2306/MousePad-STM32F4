@@ -68,7 +68,6 @@ Dựa trên mô tả, dự án có các thành phần chính sau:
 - Touch Controller (STMPE811): Cấu hình để đọc tọa độ chạm từ màn hình.
 
 ### b. Xử lý sự kiện chạm
-#### File trong TouchGFX/ (như Screen1View.cpp) xử lý sự kiện từ STMPE811:
 
 - Tọa độ (x, y) được lấy từ bộ điều khiển cảm ứng STMPE811.
 - Dữ liệu được chuyển thành delta X, delta Y để điều khiển chuột.
