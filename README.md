@@ -41,7 +41,7 @@ MousePad-STM32F4 là một dự án nhúng sử dụng board STM32F429I-Discover
 
 - Nhấn nút PA0 để thực hiện click chuột.
 
-- Vẽ vòng tròn trên màn hình khi chạm (tùy cấu hình TouchGFX).
+- Hiển thị đèn tín hiệu trên board khi chạm.
 
 # Tổng quan dự án 
 ## 1. Cấu trúc dự án
@@ -50,8 +50,6 @@ Dựa trên thông tin bạn chia sẻ và cấu trúc điển hình của STM32
 - Core/: Chứa các file mã nguồn chính như main.c, stm32f4xx_it.c, và stm32f4xx_hal_msp.c. Đây là nơi xử lý logic chính, bao gồm khởi tạo phần cứng và vòng lặp chính.
 
 - Drivers/: Chứa thư viện STM32CubeF4 (HAL, CMSIS), cung cấp các hàm cấp thấp để giao tiếp với phần cứng như GPIO, USB, và touch controller STMPE811.
-
-- TouchGFX/: Chứa mã liên quan đến giao diện đồ họa (GUI), bao gồm các file như Screen1View.cpp hoặc TouchGFXConfiguration.cpp, để vẽ vòng tròn và xử lý sự kiện chạm.
 
 - USB_DEVICE/: Chứa các file như usbd_conf.c và usbd_hid.c, xử lý giao thức USB HID để gửi dữ liệu chuột.
 
@@ -69,12 +67,13 @@ Dựa trên mô tả, dự án có các thành phần chính sau:
 
 - Touch Controller (STMPE811): Cấu hình để đọc tọa độ chạm từ màn hình.
 
-- TouchGFX: Khởi tạo giao diện đồ họa.
 ### b. Xử lý sự kiện chạm
 #### File trong TouchGFX/ (như Screen1View.cpp) xử lý sự kiện từ STMPE811:
-- Khi chạm, tọa độ (x, y) được lấy và chuyển đổi thành dữ liệu di chuyển chuột (delta X, delta Y).
 
-- Hàm vẽ vòng tròn có thể được gọi bằng cách sử dụng API của TouchGFX (như CanvasWidget), với bán kính và màu sắc tùy chỉnh.
+- Tọa độ (x, y) được lấy từ bộ điều khiển cảm ứng STMPE811.
+- Dữ liệu được chuyển thành delta X, delta Y để điều khiển chuột.
+- Khi có chạm, đèn trên board sẽ sáng để phản hồi.
+
 #### Dữ liệu di chuyển được gửi qua USB HID trong hàm USBD_HID_SendReport.
 ### c. Giao thức USB HID
 #### File usbd_hid.c định nghĩa cấu trúc báo cáo HID (Mouse Report Descriptor):
@@ -91,7 +90,6 @@ Dựa trên mô tả, dự án có các thành phần chính sau:
 - Kiểm tra ngắt PA0 và cập nhật trạng thái chuột.
 #### Ngắt (ISR):
 Xử lý chạm từ STMPE811 và nhấn PA0, sau đó gọi hàm gửi HID.
-#### TouchGFX:
 
 # Nhóm sinh viên thực hiện
 - Nguyễn Trung Hiếu - MSSV: 20215578
