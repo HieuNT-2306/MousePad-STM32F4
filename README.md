@@ -72,9 +72,9 @@ Dựa trên mô tả, dự án có các thành phần chính sau:
 - TouchGFX: Khởi tạo giao diện đồ họa.
 ### b. Xử lý sự kiện chạm
 #### File trong TouchGFX/ (như Screen1View.cpp) xử lý sự kiện từ STMPE811:
-Khi chạm, tọa độ (x, y) được lấy và chuyển đổi thành dữ liệu di chuyển chuột (delta X, delta Y).
+- Khi chạm, tọa độ (x, y) được lấy và chuyển đổi thành dữ liệu di chuyển chuột (delta X, delta Y).
 
-Hàm vẽ vòng tròn có thể được gọi bằng cách sử dụng API của TouchGFX (như CanvasWidget), với bán kính và màu sắc tùy chỉnh.
+- Hàm vẽ vòng tròn có thể được gọi bằng cách sử dụng API của TouchGFX (như CanvasWidget), với bán kính và màu sắc tùy chỉnh.
 #### Dữ liệu di chuyển được gửi qua USB HID trong hàm USBD_HID_SendReport.
 ### c. Xử lý nút PA0
 #### Trong stm32f4xx_it.c, hàm ngắt HAL_GPIO_EXTI_Callback (cho PA0) được định nghĩa:
