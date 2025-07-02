@@ -45,7 +45,7 @@ MousePad-STM32F4 là một dự án nhúng sử dụng board STM32F429I-Discover
 
 # Tổng quan dự án 
 ## 1. Cấu trúc dự án
-Dựa trên thông tin bạn chia sẻ và cấu trúc điển hình của STM32CubeIDE, dự án có thể bao gồm các thư mục chính như sau:
+Dự án bao gồm các thư mục chính như sau:
 
 - Core/: Chứa các file mã nguồn chính như main.c, stm32f4xx_it.c, và stm32f4xx_hal_msp.c. Đây là nơi xử lý logic chính, bao gồm khởi tạo phần cứng và vòng lặp chính.
 
@@ -56,7 +56,7 @@ Dựa trên thông tin bạn chia sẻ và cấu trúc điển hình của STM32
 - Inc/ và Src/: Chứa các header và file nguồn bổ sung, có thể bao gồm cấu hình cho PA0 (ngắt).
 
 ## 2. Phân tích chức năng chính
-Dựa trên mô tả, dự án có các thành phần chính sau:
+Dự án có các thành phần chính sau:
 ### a. Khởi tạo phần cứng
 #### Trong main.c, hàm MX_ (do STM32CubeMX generate) khởi tạo các ngoại vi:
 - RCC và Clock: Cấu hình HCLK = 180 MHz để hỗ trợ USB (cần 48 MHz).
