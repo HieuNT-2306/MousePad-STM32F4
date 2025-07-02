@@ -76,12 +76,7 @@ Dựa trên mô tả, dự án có các thành phần chính sau:
 
 - Hàm vẽ vòng tròn có thể được gọi bằng cách sử dụng API của TouchGFX (như CanvasWidget), với bán kính và màu sắc tùy chỉnh.
 #### Dữ liệu di chuyển được gửi qua USB HID trong hàm USBD_HID_SendReport.
-### c. Xử lý nút PA0
-#### Trong stm32f4xx_it.c, hàm ngắt HAL_GPIO_EXTI_Callback (cho PA0) được định nghĩa:
-- Khi nút được nhấn, tạo sự kiện click chuột (button state = 1) và gửi báo cáo HID.
-
-- Khi nhả nút, đặt button state = 0 và gửi báo cáo mới.
-### d. Giao thức USB HID
+### c. Giao thức USB HID
 #### File usbd_hid.c định nghĩa cấu trúc báo cáo HID (Mouse Report Descriptor):
 - Bao gồm các trường: buttons (1 byte), x (byte), y (byte).
 
@@ -91,13 +86,12 @@ Dựa trên mô tả, dự án có các thành phần chính sau:
 #### Vòng lặp chính (main.c):
 - Gọi MX_ để khởi tạo.
 
-- Sử dụng HAL_Delay hoặc SysTick để tạo khoảng thời gian gửi HID.
+- Sử dụng HAL_Delay để tạo khoảng thời gian gửi HID.
 
 - Kiểm tra ngắt PA0 và cập nhật trạng thái chuột.
 #### Ngắt (ISR):
 Xử lý chạm từ STMPE811 và nhấn PA0, sau đó gọi hàm gửi HID.
 #### TouchGFX:
-Vòng lặp GUI chạy song song, vẽ vòng tròn dựa trên tọa độ chạm.
 
 # Nhóm sinh viên thực hiện
 - Nguyễn Trung Hiếu - MSSV: 20215578
