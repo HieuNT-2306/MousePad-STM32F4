@@ -8,7 +8,7 @@ MousePad-STM32F4 là một dự án nhúng sử dụng board STM32F429I-Discover
 
 - Gửi dữ liệu chuột qua giao thức USB HID (Human Interface Device).
 
-- Hỗ trợ vẽ vòng tròn trên màn hình khi chạm.
+- Hiển thị đèn tín hiệu trên board khi chạm.
 
 - Tích hợp nút PA0 để gửi sự kiện click chuột.
 
